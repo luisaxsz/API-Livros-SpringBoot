@@ -3,13 +3,7 @@ package LivrosApi.Livros;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -43,17 +37,19 @@ public class LivrosController {
 	}
 	
 	@PostMapping()
-	public ResponseEntity<?> post(){
-		return null;
+	public ResponseEntity<?> post(@RequestBody Livros livros){
+		Livros l = service.insert(livros);
+		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<?> put(@PathVariable("id") Integer id){
-		return null;
+	public void put(@RequestBody Livros livros, @PathVariable("id") Integer id){
+		 service.update(livros,id);
 	}
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
-		return null;
+		service.delete(id);
+		return ResponseEntity.ok().build();
 	}
 }
