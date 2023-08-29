@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
 @RestController // Caracteristica do controller
 @RequestMapping("/api/v1/livros") // Nome do recurso
@@ -26,17 +29,17 @@ public class LivrosController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getLivroId(@PathVariable("id") Integer id){
-		return null;
+	public Optional<Livros> getLivroId(@PathVariable("id") Integer id){
+		return service.getLivrosById(id);
 	}
 	
-	@GetMapping("/{genero}")
-	public ResponseEntity<?> getByGenero(@PathVariable("genero") String genero){
-		return null;
+	@GetMapping("/genero/{genero}")
+	public Iterable<Livros> getByGenero(@PathVariable("genero") String genero){
+		return service.getLivroByGenero(genero);
 	}
-	@GetMapping("/{ano}")
-	public ResponseEntity<?> getByAno(@PathVariable("ano") int ano){
-		return null;
+	@GetMapping("/ano/{anopublicacao}")
+	public Iterable<Livros> getByAno(@PathVariable("anopublicacao") int anopublicacao){
+		return service.getLivroByAno(anopublicacao);
 	}
 	
 	@PostMapping()
