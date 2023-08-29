@@ -5,8 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NonNull;
 
 
 @Entity
@@ -14,6 +13,7 @@ import lombok.Setter;
 public class Livros {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@NonNull
 	private Integer idlivros;
 	
 	private String nome;
