@@ -1,0 +1,15 @@
+version: "3"
+services:
+  db:
+    image: gvenzl/oracle-xe:21-slim
+    environment:
+      ORACLE_PASSWORD: oracle
+    ports:
+      - "1521:1521"
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: container-livros
+    depends_on:
+      - db
