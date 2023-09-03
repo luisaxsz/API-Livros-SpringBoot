@@ -3,6 +3,8 @@ services:
   db:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle-xe
+    networks:
+      - mynet
     environment:
       ORACLE_USERNAME: system
       ORACLE_PASSWORD: oracle
@@ -13,7 +15,13 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: container-livros
-    ports:
-      - "8080:80"
+    restart: always
     depends_on:
       - db
+    networks:
+      - mynet
+    ports:
+      - "8080:80"
+networks:
+  mynet:
+    driver: bridge
