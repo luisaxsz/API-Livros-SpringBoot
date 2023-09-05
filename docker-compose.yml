@@ -20,8 +20,6 @@ services:
       - db
     networks:
       - mynet
-    ports:
-      - "8080:80"
 networks:
   mynet:
     driver: bridge
