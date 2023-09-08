@@ -1,4 +1,4 @@
-package LivrosApi.Livros.Security;
+package LivrosApi.Security;
 
 import LivrosApi.Users.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +26,18 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET).permitAll())
                 .csrf().disable();
 
+        http.authorizeHttpRequests((authz) -> authz
+                .requestMatchers(HttpMethod.POST).authenticated()
+                .requestMatchers(HttpMethod.PUT).authenticated()
+                .requestMatchers(HttpMethod.DELETE).authenticated()
+        );
+
         return http.build();
     }
 
 
     protected void userDetailsService(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsImpl ).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsImpl).passwordEncoder(passwordEncoder());
 
         /*
          * UserBuilder users = User.withDefaultPasswordEncoder(); UserDetails admin =
