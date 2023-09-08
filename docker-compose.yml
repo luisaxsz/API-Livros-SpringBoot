@@ -23,7 +23,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle-xe:1521/XE
       SPRING_DATASOURCE_USERNAME: system
-      SPRING_DATASOURCE_PASSWORD: oracle
+      SPRING_DATASOURCE_PASSWORD: oracle""
     links:
       - db
     ports:
