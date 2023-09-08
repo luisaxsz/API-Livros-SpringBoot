@@ -1,13 +1,15 @@
 version: "3"
+networks:
+  mynet:
 services:
   db:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle-xe
-    networks:
-      - mynet
     environment:
       ORACLE_USERNAME: system
       ORACLE_PASSWORD: oracle
+    networks:
+      - mynet
     ports:
       - "1521:1521"
   api:
@@ -15,11 +17,17 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: container-livros
-    restart: always
-    depends_on:
-      - db
     networks:
       - mynet
-networks:
-  mynet:
-    driver: bridge
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle-xe:1521/XE
+      SPRING_DATASOURCE_USERNAME: system
+      SPRING_DATASOURCE_PASSWORD: oracle
+    links:
+      - db
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_started

@@ -11,7 +11,7 @@ import lombok.NonNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(schema = "LIVROS", name="livros")
+@Table(schema = "livros", name="livros")
 public class Livros {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
