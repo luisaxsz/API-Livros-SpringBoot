@@ -13,6 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -27,10 +29,11 @@ public class SecurityConfig {
                 .csrf().disable();
 
         http.authorizeHttpRequests((authz) -> authz
-                .requestMatchers(HttpMethod.POST).authenticated()
-                .requestMatchers(HttpMethod.PUT).authenticated()
-                .requestMatchers(HttpMethod.DELETE).authenticated()
+                .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
         );
+        http.httpBasic(withDefaults());
 
         return http.build();
     }
