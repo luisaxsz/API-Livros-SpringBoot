@@ -10,13 +10,19 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "users", schema= "LIVROS")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer Id;
-    private String username;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "LOGIN")
+    private String login;
+    @Column(name = "NOME")
+    private String nome;
+    @Column(name = "SENHA")
     private String senha;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -37,7 +43,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return login;
     }
 
 

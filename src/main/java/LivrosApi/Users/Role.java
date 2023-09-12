@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Entity
 @Data
-@Table(name = "roles")
+@Table(name = "roles", schema = "LIVROS")
 public class Role implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
