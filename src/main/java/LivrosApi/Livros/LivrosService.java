@@ -4,6 +4,7 @@ package LivrosApi.Livros;
 import LivrosApi.ExceptionsConfig.ExceptionConfig;
 import LivrosApi.Livros.Exception.ObjectNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -58,6 +59,7 @@ public class LivrosService {
 	public void delete(Integer id){
 		if(getLivrosById(id).isPresent()){
 			livrosRep.deleteById(id);
+			ResponseEntity.ok().build();
 		}
 		throw new ObjectNotFound("Livro não encontrado");
 	}
