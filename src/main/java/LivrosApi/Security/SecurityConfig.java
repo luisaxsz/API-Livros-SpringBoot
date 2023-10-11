@@ -13,13 +13,16 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfig {
+public class SecurityConfig implements WebMvcConfigurer {
 
     @Autowired
     @Qualifier("userDetailImpl")
@@ -31,14 +34,24 @@ public class SecurityConfig {
                 .csrf().disable();
 
         http.authorizeHttpRequests((authz) -> authz
-                .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST).permitAll()
                 .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                 .anyRequest().authenticated()
         );
+
+        http.cors();
+
         http.httpBasic(withDefaults());
 
         return http.build();
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT");
     }
 
 

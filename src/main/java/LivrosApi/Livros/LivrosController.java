@@ -12,7 +12,7 @@ import java.util.Optional;
 @Controller
 @RestController // Caracteristica do controller
 @RequestMapping("/api/v1/livros") // Nome do recurso
-@CrossOrigin(origins = {"*"}, methods = {RequestMethod.GET})
+@CrossOrigin(origins = {"*"}, methods = {RequestMethod.GET, RequestMethod.POST})
 public class LivrosController {
 	
 	
