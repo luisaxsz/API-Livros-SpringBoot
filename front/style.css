@@ -1,0 +1,5 @@
+.livro-box{
+    display: flex;
+    flex-direction: column;
+    margin: 10em;
+}
