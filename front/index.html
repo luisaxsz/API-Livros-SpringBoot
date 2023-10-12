@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Api Livros</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="fazGet()">
     <form>
-        <label for="">Nome:</label><input type="text" id="nome"><br>
-        <label for="">Genero:</label><input type="text" id="genero"><br>
-        <label for="">Numero de Paginas:</label><input type="text" id="numPag"><br>
-        <label for="">Editora</label><input type="text" id="editora"><br>
-        <label for="">Ano:</label><input type="text" id="ano"><br>
+        <label>Nome:</label><input type="text" id="nome"><br>
+        <label>Genero:</label><input type="text" id="genero"><br>
+        <label>Numero de Paginas:</label><input type="text" id="numPag"><br>
+        <label>Editora</label><input type="text" id="editora"><br>
+        <label>Ano:</label><input type="text" id="ano"><br>
         <button onclick="cadastroLivro()">Adicionar</button>
-        <button onclick="editarLivro()">Editar</button>
     </form>
-    <table id="table-livro"></table>
+    <p id="livros"></p>
+    <table id="table-livros"></table>
     <script src="get.js"></script>
     <script src="post.js"></script>
 </body>
