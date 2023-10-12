@@ -24,8 +24,14 @@ public class LivrosController {
 	}
 
 	@GetMapping("/{id}")
-	public Optional<Livros> getLivroId(@PathVariable("id") Integer id){
-		return service.getLivrosById(id);
+	public ResponseEntity<?> getLivroId(@PathVariable("id") Integer id){
+		Optional<Livros> livroOptional = service.getLivrosById(id);
+
+		if (livroOptional.isPresent()) {
+			return ResponseEntity.ok(livroOptional);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 	@GetMapping("/genero/{genero}")
 	public Iterable<Livros> getByGenero(@PathVariable("genero") String genero){
@@ -48,7 +54,11 @@ public class LivrosController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Integer id){
-		service.delete(id);
-		return ResponseEntity.ok().build();
+		if(service.delete(id)){
+			return ResponseEntity.ok().build();
+		}else{
+			return ResponseEntity.notFound().build();
+		}
+
 	}
 }

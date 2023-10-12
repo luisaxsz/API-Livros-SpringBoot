@@ -1,14 +1,11 @@
 package LivrosApi.Livros;
 
 
-import LivrosApi.ExceptionsConfig.ExceptionConfig;
-import LivrosApi.Livros.Exception.ObjectNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,11 +53,14 @@ public class LivrosService {
 		throw new RuntimeException("Carro não Atualizado");
 	}
 
-	public void delete(Integer id){
-		if(getLivrosById(id).isPresent()){
+	public boolean delete(Integer id){
+		Optional<Livros> livros = getLivrosById(id);
+		if (livros.isPresent()) {
 			livrosRep.deleteById(id);
-			ResponseEntity.ok().build();
+			return true;
+		} else {
+			return false;
 		}
-		throw new ObjectNotFound("Livro não encontrado");
+
 	}
 }

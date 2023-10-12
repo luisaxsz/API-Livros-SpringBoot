@@ -5,19 +5,32 @@ function criaLinha(livros){
   const tdNumPag = document.createElement("td");
   const tdEditora = document.createElement("td");
   const tdAno = document.createElement("td");
-  const button = document.createElement("button")
-  button.innerHTML = "editar"
+
+  const buttonEditar = document.createElement("button")
+  const buttonDeletar = document.createElement("button")
+
   tdNome.innerHTML = livros.nome;
   tdGenero.innerHTML = livros.genero;
   tdNumPag.innerHTML = livros.numpaginas;
   tdEditora.innerHTML = livros.editora;
   tdAno.innerHTML = livros.anopublicacao;
+  
+  buttonEditar.innerHTML = "Editar"
+  buttonDeletar.innerHTML = "Deletar"
+  // Gera um class='' para o elemento criado
+  buttonEditar.classList.add("button-editar");
+  buttonDeletar.classList.add("button-deletar");
+
+  buttonDeletar.addEventListener("click", deletarLivro(livros.idlivros));
+ 
+
   linha.appendChild(tdNome);
   linha.appendChild(tdGenero);
   linha.appendChild(tdNumPag);
   linha.appendChild(tdEditora);
   linha.appendChild(tdAno);
-  linha.appendChild(button)
+  linha.appendChild(buttonEditar)
+  linha.appendChild(buttonDeletar)
   return linha;
 }
 
