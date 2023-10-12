@@ -21,7 +21,12 @@ function criaLinha(livros){
   buttonEditar.classList.add("button-editar");
   buttonDeletar.classList.add("button-deletar");
 
-  buttonDeletar.addEventListener("click", deletarLivro(livros.idlivros));
+  buttonDeletar.addEventListener("click", function(){
+    fazPut(livros.idlivros);
+  });
+  buttonDeletar.addEventListener("click", function(){
+    deletarLivro(livros.idlivros);
+  });
  
 
   linha.appendChild(tdNome);

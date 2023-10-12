@@ -6,7 +6,7 @@
     <title>Api Livros</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="fazGet()">
+<body>
     <form>
         <label>Nome:</label><input type="text" id="nome"><br>
         <label>Genero:</label><input type="text" id="genero"><br>
@@ -15,6 +15,7 @@
         <label>Ano:</label><input type="text" id="ano"><br>
         <button onclick="cadastroLivro()">Adicionar</button>
     </form>
+    <button onclick="fazGet()">ver</button>
     <p id="livros"></p>
     <table id="table-livros"></table>
     <script src="javascript/get.js"></script>
