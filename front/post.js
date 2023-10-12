@@ -1,22 +1,6 @@
 let url = 'http://localhost:8080/api/v1/livros';
 
 function fazPost(){
-    let request = new XMLHttpRequest();
-    request.open("POST", url, true);
-    //Para dizer o que ta mandando pra ele -> Content-type tipo de conteúdo
-    request.setRequestHeader("Content-type", "application/json");
-    request.setRequestHeader("Authorization", "Basic" + btoa("admin:123"));
-    request.send(JSON.stringify(body));
-    
-    request.onload = function(){
-        console.log(this.responseText);
-    }
-
-    return request.responseText;
-
-}
-
-function testfazpost(){
     fetch('http://localhost:8080/api/v1/livros',{
         method:"POST",
         mode:'cors',
@@ -50,5 +34,5 @@ function cadastroLivro(){
         "anopublicacao": ano
     }
 
-    testfazpost(body)
+    fazPost(body)
 }
