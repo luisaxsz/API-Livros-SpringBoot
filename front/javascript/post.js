@@ -36,3 +36,10 @@ function cadastroLivro(){
 
     fazPost(body)
 }
+
+function mostrarPopUpCadastro(){
+    document.getElementById("cadastrar-livro").style.display = 'block';
+}
+function fecharPopUpCadastro(){
+    document.getElementById("cadastrar-livro").style.display = 'none';
+}
