@@ -21,8 +21,8 @@ function criaLinha(livros){
   buttonEditar.classList.add("button-editar");
   buttonDeletar.classList.add("button-deletar");
 
-  buttonDeletar.addEventListener("click", function(){
-    fazPut(livros.idlivros);
+  buttonEditar.addEventListener("click", function(){
+    mostrarPopUp(livros.idlivros);
   });
   buttonDeletar.addEventListener("click", function(){
     deletarLivro(livros.idlivros);
@@ -55,7 +55,7 @@ function fazGet() {
 
       data.forEach(element => { 
         let linha = criaLinha(element);
-        tabela.appendChild(linha)
+        tabela.appendChild(linha);
       })
 });
 }

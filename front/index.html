@@ -7,16 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
-        <label>Nome:</label><input type="text" id="nome"><br>
-        <label>Genero:</label><input type="text" id="genero"><br>
-        <label>Numero de Paginas:</label><input type="text" id="numPag"><br>
-        <label>Editora</label><input type="text" id="editora"><br>
-        <label>Ano:</label><input type="text" id="ano"><br>
-        <button onclick="cadastroLivro()">Adicionar</button>
-    </form>
-    <button onclick="fazGet()">ver</button>
-    <p id="livros"></p>
+    <main>
+        <section>
+            <form>
+                <label>Nome:</label><input type="text" id="nome"><br>
+                <label>Genero:</label><input type="text" id="genero"><br>
+                <label>Numero de Paginas:</label><input type="text" id="numPag"><br>
+                <label>Editora</label><input type="text" id="editora"><br>
+                <label>Ano:</label><input type="text" id="ano"><br>
+                <button onclick="cadastroLivro()">Adicionar</button>
+            </form>
+        </section>
+        <section>
+            <button onclick="fazGet()">ver</button>
+            <p id="livros"></p>
+        </section>
+        <section id="editar-livro">
+            <form>
+                <label>Nome:</label><input type="text" id="nome-editar"><br>
+                <label>Genero:</label><input type="text" id="genero-editar"><br>
+                <label>Numero de Paginas:</label><input type="text" id="numPag-editar"><br>
+                <label>Editora</label><input type="text" id="editora-editar"><br>
+                <label>Ano:</label><input type="text" id="ano-editar"><br>
+                <button onclick="editarLivro()">Adicionar</button>
+                <button onclick="fecharPopUp()">voltar</button>
+            </form>
+        </section>
+    </main>
+    
     <table id="table-livros"></table>
     <script src="javascript/get.js"></script>
     <script src="javascript/post.js"></script>
