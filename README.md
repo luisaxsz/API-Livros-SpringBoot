@@ -15,7 +15,8 @@
 - Adicionar Livros
 - Atualizar Livros
 - Deletar Livros
-- Spring Security 
+- Spring Security
+- Interface com JavaScript
 ## API Livros 
 ### Consultar todos os carros
 ```GET /api/v1/livros```
@@ -109,3 +110,15 @@
 ```DELETE /api/v1/livros/{ID}```
 
 - Também só é possível deletar livro caso possua ROLE admin(necessário autorização)
+
+## Você pode Mudar os Atributos em um Formulário
+
+### Cadastro do livro desejado
+
+![cadasto](https://github.com/luisaxsz/API-Livros-SpringBoot/assets/101007311/6166dd51-367b-42ef-bfb4-627b9e056df4)
+![cadastrado](https://github.com/luisaxsz/API-Livros-SpringBoot/assets/101007311/82dcd41d-9326-4e0e-84a2-c4a3a187f93e)
+
+### Editar livro desejado 
+
+![editar](https://github.com/luisaxsz/API-Livros-SpringBoot/assets/101007311/9bdeced0-2c11-4081-811a-7953b3aea01c)
+![editado](https://github.com/luisaxsz/API-Livros-SpringBoot/assets/101007311/e828320f-c014-4001-83b1-4733beb99b27)
