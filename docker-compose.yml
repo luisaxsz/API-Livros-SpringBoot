@@ -3,7 +3,18 @@ networks:
   mynet:
 services:
   front:
+    image: nginx:latest
     container_name: front
+    volumes:
+      - "./front/index.html:/usr/share/nginx/html/index.html"
+      - "./front/javascript/delete.js:/usr/share/nginx/html/delete.js"
+      - "./front/javascript/get.js:/usr/share/nginx/html/get.js"
+      - "./front/javascript/post.js:/usr/share/nginx/html/post.js"
+      - "./front/javascript/put.js:/usr/share/nginx/html/put.js"
+    ports:
+      - "5000:50"
+    depends_on:
+      - api
   db:
     image: gvenzl/oracle-xe:21-slim
     container_name: oracle-xe
