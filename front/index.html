@@ -27,11 +27,14 @@
         <section id="editar-livro">
             <form>
                 <h2>Edite Seu Livro</h2>
-                <label>Nome:</label><input type="text" id="nome-editar"><br>
-                <label>Genero:</label><input type="text" id="genero-editar"><br>
-                <label>Numero de Paginas:</label><input type="text" id="numPag-editar"><br>
-                <label>Editora</label><input type="text" id="editora-editar"><br>
-                <label>Ano:</label><input type="text" id="ano-editar"><br>
+                <select name="" id="seletor-atributo">
+                    <option value="nome">Nome</option>
+                    <option value="genero">Genero</option>
+                    <option value="numPag">numPag</option>
+                    <option value="editora">Editora</option>
+                    <option value="anoPub">anoPub</option>
+                </select>
+                <input type="text" id="editar-atributo">
                 <button onclick="editarLivro()">Editar</button>
                 <button onclick="fecharPopUp()">Sair</button>
             </form>

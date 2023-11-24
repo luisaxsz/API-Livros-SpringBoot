@@ -15,6 +15,7 @@ function deletarLivro(id){
     })
     .then(res => res.text())
     .then(function(data){
-        console.log(data)
+        console.log("ok",data)
     })
+    .catch(err => console.log(err))
 }

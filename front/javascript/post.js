@@ -15,7 +15,8 @@ function fazPost(){
         body: JSON.stringify(body),
     })
     .then(res => res.text())
-    .then((data) => console.log(data))
+    .then((data) => console.log("ok",data))
+    .catch(err => console.log(err))
 }
 
 function cadastroLivro(){
